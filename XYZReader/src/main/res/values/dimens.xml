@@ -1,7 +1,8 @@
 <resources>
     <!-- detail -->
-    <dimen name="detail_title_text_size">32sp</dimen>
-    <dimen name="detail_body_text_size">22sp</dimen>
+    <dimen name="detail_title_text_size">24sp</dimen>
+    <dimen name="detail_subtitle_text_size">16sp</dimen>
+    <dimen name="detail_body_text_size">16sp</dimen>
     <item name="detail_body_line_spacing_multiplier" format="float" type="fraction">1.25</item>
 
     <dimen name="fab_elevation">2dp</dimen>
@@ -9,5 +10,7 @@
     <dimen name="fab_margin">24dp</dimen>
 
     <dimen name="tall_toolbar_height">180dp</dimen>
+    <dimen name="title_toolbar_height">120dp</dimen>
+    <dimen name="header_toolbar_height">540dp</dimen>
 
 </resources>
