@@ -55,7 +55,6 @@
         android:layout_margin="16dp"
         android:background="@drawable/add_fab_background"
         android:src="@drawable/ic_share"
-        android:elevation="@dimen/fab_elevation"
         android:stateListAnimator="@anim/fab_state_list_anim"/>
 
     <android.support.design.widget.AppBarLayout
