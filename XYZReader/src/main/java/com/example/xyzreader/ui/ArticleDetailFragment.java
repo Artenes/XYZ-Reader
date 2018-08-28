@@ -19,6 +19,8 @@ import java.util.GregorianCalendar;
 import android.os.Bundle;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.graphics.Palette;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
@@ -58,6 +60,9 @@ public class ArticleDetailFragment extends Fragment implements
     private View mPhotoContainerView;
     private LinearLayout mMetaBar;
     private ImageView mPhotoView;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private ParagraphAdapter mAdapter;
     private int mScrollY;
     private boolean mIsCard = false;
     private int mStatusBarFullOpacityBottom;
@@ -120,6 +125,12 @@ public class ArticleDetailFragment extends Fragment implements
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
         mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
         mMetaBar = (LinearLayout) mRootView.findViewById(R.id.meta_bar);
+
+        mRecyclerView = (RecyclerView) mRootView.findViewById(R.id.article_body);
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new ParagraphAdapter();
+        mRecyclerView.setAdapter(mAdapter);
 
         mStatusBarColorDrawable = new ColorDrawable(0);
 
@@ -185,10 +196,7 @@ public class ArticleDetailFragment extends Fragment implements
         TextView titleView = (TextView) mRootView.findViewById(R.id.article_title);
         TextView bylineView = (TextView) mRootView.findViewById(R.id.article_byline);
         bylineView.setMovementMethod(new LinkMovementMethod());
-        TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
-
-
-        bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
+        mLayoutManager = new LinearLayoutManager(getActivity());
 
         if (mCursor != null) {
             mRootView.setAlpha(0);
@@ -214,7 +222,10 @@ public class ArticleDetailFragment extends Fragment implements
                                 + "</font>"));
 
             }
-            bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
+
+            String[] bodyText = mCursor.getString(ArticleLoader.Query.BODY).split("\r\n\r\n");
+            mAdapter.setData(bodyText);
+
             ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
                     .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
                         @Override
@@ -235,11 +246,6 @@ public class ArticleDetailFragment extends Fragment implements
 
                         }
                     });
-        } else {
-            mRootView.setVisibility(View.GONE);
-            titleView.setText("N/A");
-            bylineView.setText("N/A" );
-            bodyView.setText("N/A");
         }
     }
 
