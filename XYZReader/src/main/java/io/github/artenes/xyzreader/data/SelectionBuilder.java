@@ -20,7 +20,7 @@
  * -Changed package name
  */
 
-package com.example.xyzreader.data;
+package io.github.artenes.xyzreader.data;
 
 import java.util.ArrayList;
 import java.util.Arrays;

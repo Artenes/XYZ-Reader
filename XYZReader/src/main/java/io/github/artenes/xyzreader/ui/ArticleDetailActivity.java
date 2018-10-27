@@ -1,4 +1,4 @@
-package com.example.xyzreader.ui;
+package io.github.artenes.xyzreader.ui;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -16,9 +16,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
 
-import com.example.xyzreader.R;
-import com.example.xyzreader.data.ArticleLoader;
-import com.example.xyzreader.data.ItemsContract;
+import io.github.artenes.xyzreader.data.ArticleLoader;
+import io.github.artenes.xyzreader.data.ItemsContract;
+
+import io.github.artenes.xyzreader.R;
 
 /**
  * An activity representing a single Article detail screen, letting you swipe between articles.

@@ -1,4 +1,4 @@
-package com.example.xyzreader.ui;
+package io.github.artenes.xyzreader.ui;
 
 import android.app.Fragment;
 import android.app.LoaderManager;
@@ -34,8 +34,8 @@ import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
-import com.example.xyzreader.R;
-import com.example.xyzreader.data.ArticleLoader;
+import io.github.artenes.xyzreader.R;
+import io.github.artenes.xyzreader.data.ArticleLoader;
 
 /**
  * A fragment representing a single Article detail screen. This fragment is

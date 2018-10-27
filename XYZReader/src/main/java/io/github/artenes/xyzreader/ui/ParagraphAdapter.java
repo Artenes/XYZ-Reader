@@ -1,4 +1,4 @@
-package com.example.xyzreader.ui;
+package io.github.artenes.xyzreader.ui;
 
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.xyzreader.R;
+import io.github.artenes.xyzreader.R;
 
 public class ParagraphAdapter extends RecyclerView.Adapter<ParagraphAdapter.ParagraphViewHolder> {
 
