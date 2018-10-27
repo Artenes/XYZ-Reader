@@ -37,3 +37,7 @@ git clone git@github.com:Artenes/XYZ-Reader.git
 ````
 
 And import the project in Android Studio and run the application
+
+# License
+
+MIT License
